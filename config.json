@@ -1,0 +1,15 @@
+{
+    "listeners": {
+        "*:8081": {
+            "pass": "applications/webapp"
+        }
+    },
+    "applications": {
+        "webapp": {
+            "type": "python 3.9",
+            "path": "/usr/local/nginx/app/",
+            "module": "wsgi",
+            "callable": "app"
+        }
+    }
+}
