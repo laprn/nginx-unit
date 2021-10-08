@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block add_head_tag %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+<script src="./static/index.js"></script>
+{% endblock %}
+{% block content %}
+<h1>Uploaded Images</h1>
+<div class="grid container">
+    {% for _file_name in _files_name %}
+    <div class="grid-item"><a href="./uploads/{{ _file_name.img_url }}"><img src="./uploads/{{ _file_name.img_url }}" loading="lazy"></a></div>
+    {% endfor %}
+</div>
+<p><a class="pagination__next" href="./uploads?p={{ page+1 }}">Next</a></p>
+{% endblock %}

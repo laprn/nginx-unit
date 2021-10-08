@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Simple Image Uploader β</h1>
+<a href="http://j4sf6rjt4lgjgyg7qevfrhicxd4ydbbwpgpth4xl75hby75q3nobsuyd.onion">Onion Site</a>
+<p>update:2021-08-31</p>
+<h2>ルール</h2>
+<div class="warning">
+	<span class="warning-img"><strong>WARNING 以下の内容を含む画像はアップロードしないでください。</strong></span>
+	<ul>
+		<li>アダルト系・過度な性描写</li>
+		<li>グロテスクなコンテンツ</li>
+		<li>暴力的・誹謗中傷</li>
+		<li>自国で違法となる内容</li>
+	</ul>
+</div>
+<p>アップロードされた画像は誰でも閲覧できます。画像の上限は4Mbです。<code>.jpgと.png対応。</code></p>
+<p>投稿された画像は下リンクから見れます。画像の削除機能はないので気をつけてください。</p>
+<hr>
+<h2>Rule</h2>
+<div class="warning">
+	<span class="warning-img"><strong> WARNING DO NOT upload images includes the following.</strong></span>
+	<ul>
+		<li>Adult contents, excessive sexual contents</li>
+		<li>Grotesque contents</li>
+		<li>Violent and slanderous</li>
+		<li>Content that is illegal in your country</li>
+	</ul>
+</div>
+<p>Uploaded images can be viewed by anyone. The maximum size of an image is 4Mb.available extention:<code> .jpg and .png</code></p>
+<p>Uploaded images are available for viewing from the link below. There is no delete function of images, so be careful.</p>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul class=flashes>
+	{% for message in messages %}
+  		<li><strong>{{ message }}</strong></li>
+	{% endfor %}
+	</ul>
+{% endif %}
+{% endwith %}
+<form method="post" enctype="multipart/form-data">
+	<input type=file name=file>
+	<p>{{ captcha() }}</p>
+	<p>CAPTCHA<input type="text" name="captcha"></p>
+	<input type=submit value=Upload class="button">
+	<input type="reset" value=Reset class="button">
+</form>
+<div class="uploaded_imgs"><p>Uploaded images</p><a href="./uploads"></a></div>
+<hr>
+<p>payment details BTC 192yfj1i8fz2DAzvwBVRuQU3EwHyF5H3wS</p>
+{% endblock %}
