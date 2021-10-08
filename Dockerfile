@@ -19,3 +19,4 @@ RUN . venv/bin/activate
 
 # pip istall
 RUN pip install -r requirements.txt
+RUN python dbinit.py
